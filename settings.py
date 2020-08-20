@@ -13,7 +13,7 @@ class Dev():
     ENV = 'development'
     DEBUG = True
 
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://jack:xCrayon21!@47.102.108.108/edu?charset=utf8'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://user:password@ip/edu?charset=utf8'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_ECHO = True
