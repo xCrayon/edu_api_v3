@@ -30,6 +30,7 @@ def add_role():
     db.session.commit()
     print(r1.id, r2.id)
 
+
 def add_user_role():
 
     # db.Table()不能作为模型类使用
@@ -50,6 +51,7 @@ def add_user_role():
 
     db.session.commit()
     print('ok')
+
 
 def query_user_role(user_id=1):
     u = User.query.get(user_id)

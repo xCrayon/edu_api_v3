@@ -9,31 +9,31 @@ from models.user import db, User
 from utils import cache
 
 
-@app.before_request
-def check_login():
-    app.logger.info(request.path+'被访问了')
-    if request.path not in ['/user/login',
-                             '/log']:
-
-        # 判断request中是否包含token
-        # 验证token是否有效
-        token = request.cookies.get('token')
-        if not token:
-            return redirect(url_for('userBlue.login'))
-        else:
-            user_id = cache.get_user_id(token)
-            if not user_id:
-                return redirect(url_for('userBlue.login'))
-
-
-@app.route('/')
-def index():
-    # 获取用户登录的信息
-    token = request.cookies.get('token')
-    user_id = cache.get_user_id(token)
-    user = User.query.get(int(user_id))
-
-    return render_template('index.html', user=user)
+# @app.before_request
+# def check_login():
+#     app.logger.info(request.path+'被访问了')
+#     if request.path not in ['/user/login',
+#                              '/log']:
+#
+#         # 判断request中是否包含token
+#         # 验证token是否有效
+#         token = request.cookies.get('token')
+#         if not token:
+#             return redirect(url_for('userBlue.login'))
+#         else:
+#             user_id = cache.get_user_id(token)
+#             if not user_id:
+#                 return redirect(url_for('userBlue.login'))
+#
+#
+# @app.route('/')
+# def index():
+#     # 获取用户登录的信息
+#     token = request.cookies.get('token')
+#     user_id = cache.get_user_id(token)
+#     user = User.query.get(int(user_id))
+#
+#     return render_template('index.html', user=user)
 
 
 @app.route('/create_db')

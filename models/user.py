@@ -40,7 +40,3 @@ class User(db.Model):
     # role_id = Column(ForeignKey('role.id'))
     # Many-to-Many 多对多的关系，指定secondary设置关联的表，Table()
     roles = db.relationship(Role, secondary=user_role)
-
-
-
-
